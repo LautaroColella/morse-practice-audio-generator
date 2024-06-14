@@ -7,8 +7,8 @@ This Python program generates an audio file (.mp3) from morse code text input ba
 1. **Clone the repository:**
 
     ```sh
-    git clone <repository_url>
-    cd <repository_name>
+    git clone https://github.com/LautaroColella/morse-practice-audio-generator.git
+    cd morse-practice-audio-generator
     ```
 
 2. **Install dependencies:**
