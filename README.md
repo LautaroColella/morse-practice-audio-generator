@@ -1,6 +1,16 @@
 # Morse Code Audio Generator
 
-This Python program generates an audio file (.mp3) from morse code text input based on specified configurations.
+This Python program generates an audio file from morse code text input based on specified configurations.
+
+## Features
+
+- **Custom Sound Files**: Specify your own sound files for dots and dashes.
+- **Configurable Output**: Easily configure the output file name and path.
+- **Adjustable Bitrate**: Control the quality and size of the generated audio file with customizable bitrate settings.
+- **Flexible Timing Levels**: Choose from beginner, intermediate, advanced, or define arbitrary custom delays for Morse code timing.
+- **Word Separator**: Define a custom separator to distinguish between words in your Morse code input.
+- **User-Friendly Input**: Enter Morse code input directly and get instant audio output.
+- **Easy Configuration**: Modify the `config.cfg` file to set preferences and customization options.
 
 ## Installation
 
@@ -28,7 +38,7 @@ This Python program generates an audio file (.mp3) from morse code text input ba
 1. **Run the program:**
 
     ```sh
-    python morse_code_generator.py
+    python audio_generator.py
     ```
 
 2. **Enter text input:**
@@ -47,6 +57,7 @@ The `config.cfg` file allows customization for Morse code audio generation
 - `dash_sound_file`: Path to the sound file for a dash.
 - `output_file`: Path where the generated audio file will be saved.
 - `word_separator`: Separator used to split words in the input.
+- `bitrate`: Sound quality for determining file size.
 - `level`: Specifies the Morse code timing level.
 
 **Level Settings:**
@@ -70,11 +81,12 @@ dot_sound_file = sounds/dot.mp3
 dash_sound_file = sounds/dash.mp3
 output_file = morse_output.mp3
 word_separator = /
+bitrate = 32k
 level = beginner
 
-arbitrary_delay_between_sounds = 9
+arbitrary_delay_between_sounds = 3
 arbitrary_delay_between_characters = 9
-arbitrary_delay_between_words = 9
+arbitrary_delay_between_words = 13
 ```
 
 ## LICENSE

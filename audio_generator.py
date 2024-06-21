@@ -57,11 +57,18 @@ def read_config(file_path):
 
     word_separator = config.get("settings", "word_separator")
 
-    return sound_delay_map, sound_map, output_file, word_separator
+    bitrate = config.get("settings", "bitrate")
+
+    return sound_delay_map, sound_map, output_file, word_separator, bitrate
 
 
 def generate_audio(
-    input_string, sound_delay_map, sound_map, output_file, word_separator
+    input_string,
+    sound_delay_map,
+    sound_map,
+    output_file="morse_output.mp3",
+    word_separator="/",
+    bitrate="32k",
 ):
 
     silence_between_parts = AudioSegment.silent(
@@ -92,7 +99,7 @@ def generate_audio(
         if word != words[len(words) - 1]:
             combined += silence_between_words
 
-    combined.export(output_file, format="mp3")
+    combined.export(output_file, format="mp3", bitrate=bitrate)
 
     print(f"Generated audio file: {output_file}")
 
@@ -101,10 +108,12 @@ if __name__ == "__main__":
 
     config_file = "config.cfg"
 
-    sound_delay_map, sound_map, output_file, word_separator = read_config(config_file)
+    sound_delay_map, sound_map, output_file, word_separator, bitrate = read_config(
+        config_file
+    )
 
     input_string = input(f"Enter text in morse code, separated by '{word_separator}': ")
 
     generate_audio(
-        input_string, sound_delay_map, sound_map, output_file, word_separator
+        input_string, sound_delay_map, sound_map, output_file, word_separator, bitrate
     )
