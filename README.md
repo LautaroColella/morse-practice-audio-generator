@@ -6,9 +6,11 @@ This Python program generates an audio file from morse code text input based on 
 
 - **Custom Sound Files**: Specify your own sound files for dots and dashes.
 - **Configurable Output**: Easily configure the output file name and path.
+- **Multiple File Formats**: Select from multiple output formats including MP3, OGG, WAV, and FLAC.
 - **Adjustable Bitrate**: Control the quality and size of the generated audio file with customizable bitrate settings.
-- **Flexible Timing Levels**: Choose from beginner, intermediate, advanced, or define arbitrary custom delays for Morse code timing.
+- **Flexible Timing Levels**: Choose from beginner, intermediate, advanced or arbitrary for custom timing delays.
 - **Word Separator**: Define a custom separator to distinguish between words in your Morse code input.
+- **Dynamic File Naming**: Optionally use the current date and time as part of the output file name.
 - **User-Friendly Input**: Enter Morse code input directly and get instant audio output.
 - **Easy Configuration**: Modify the `config.cfg` file to set preferences and customization options.
 
@@ -47,7 +49,7 @@ This Python program generates an audio file from morse code text input based on 
 
 3. **Output:**
 
-    The program will generate an audio file (`morse_output.mp3`) in the same directory.
+    The program will generate an audio file (default is `morse.mp3`) in the same directory.
 
 ## Configuration Details
 
@@ -55,9 +57,11 @@ The `config.cfg` file allows customization for Morse code audio generation
 
 - `dot_sound_file`: Path to the sound file for a dot.
 - `dash_sound_file`: Path to the sound file for a dash.
-- `output_file`: Path where the generated audio file will be saved.
-- `word_separator`: Separator used to split words in the input.
+- `file_name`: Name of the generated audio file.
+- `file_format`: Format of the generated audio file.
 - `bitrate`: Sound quality for determining file size.
+- `use_current_time`: Adds the current time in the file name.
+- `word_separator`: Separator used to split words in the input.
 - `level`: Specifies the Morse code timing level.
 
 **Level Settings:**
@@ -79,11 +83,12 @@ For "arbitrary" level:
 [settings]
 dot_sound_file = sounds/dot.mp3
 dash_sound_file = sounds/dash.mp3
-output_file = morse_output.mp3
-word_separator = /
+file_name = morse
+use_current_time = 1
+file_format = mp3
 bitrate = 32k
+word_separator = /
 level = beginner
-
 arbitrary_delay_between_sounds = 3
 arbitrary_delay_between_characters = 9
 arbitrary_delay_between_words = 13
